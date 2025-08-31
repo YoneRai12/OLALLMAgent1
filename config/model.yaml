@@ -1,0 +1,11 @@
+current: 20B
+backends:
+  20B:
+    engine: "ollama"
+    model: "gpt-oss-20b-q4_k_m"
+    context_window: 32768
+  120B:
+    engine: "vllm"
+    model: "gpt-oss-120b-awq"
+    tensor_parallel_size: 2
+    max_model_len: 131072
