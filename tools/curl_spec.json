@@ -1,0 +1,4 @@
+{
+  "description": "Verify tool call returns strict JSON",
+  "command": "curl -s -X POST http://localhost:8000/chat -H 'Content-Type: application/json' -d '{\"messages\":[{\"role\":\"user\",\"content\":\"test tool\"}],\"tools\":[]}'"
+}
