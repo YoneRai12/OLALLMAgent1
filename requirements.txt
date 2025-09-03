@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+httpx
+pydantic
+playwright
+tenacity
+chroma-client
+sentence-transformers
+pyyaml
+prometheus-client
