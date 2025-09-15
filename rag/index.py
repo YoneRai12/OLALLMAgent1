@@ -15,6 +15,11 @@ _client = chromadb.PersistentClient(path=str(CHROMA_DIR))
 _collection = _client.get_or_create_collection("docs")
 
 async def add_texts(texts: Iterable[str]) -> None:
-    embeddings = _embedder.encode(list(texts))
-    ids = [str(i) for i in range(_collection.count(), _collection.count() + len(texts))]
-    _collection.add(ids=ids, embeddings=embeddings, documents=list(texts))
+    texts_list = list(texts)
+    if not texts_list:
+        return
+
+    embeddings = _embedder.encode(texts_list)
+    start = _collection.count()
+    ids = [str(i) for i in range(start, start + len(texts_list))]
+    _collection.add(ids=ids, embeddings=embeddings, documents=texts_list)
